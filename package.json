@@ -1,0 +1,25 @@
+{
+  "name": "git_test",
+  "version": "1.0.0",
+  "description": "this is test",
+  "main": "index.html",
+  "scripts": {
+    "start": "npm run lite",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lite": "lite-server"
+  },
+  "repository": {
+    "start": "npm run lite",
+    "type": "git",
+    "url": "git+https://github.com/thi2000/labFunix.git"
+  },
+  "author": "dinh thi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thi2000/labFunix/issues"
+  },
+  "homepage": "https://github.com/thi2000/labFunix#readme",
+  "devDependencies": {
+    "lite-server": "^2.6.1"
+  }
+}
