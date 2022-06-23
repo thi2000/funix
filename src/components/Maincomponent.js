@@ -4,18 +4,20 @@ import Bangluong from "./Bangluongcomponent";
 import Menu from "./Menucomponents";
 import Staffsdetal from "./Staffscomponent";
 
-import { DEPARTMENTS, STAFFS } from "../shared/staffs";
 import Header from "./headercomponent";
 import Footer from "./footercomponent";
-import { Switch, Route, Redirect } from "react-router-dom";
+import { Switch, Route, Redirect, withRouter } from "react-router-dom";
 import Phongban from "./Phongbancomponent";
+import { connect } from "react-redux";
+const mapStateToProps = (state) => {
+  return {
+    staffs: state.staffs,
+    departments: state.departments,
+  };
+};
 class Main extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      staffs: STAFFS,
-      departments: DEPARTMENTS,
-    };
   }
 
   render() {
@@ -23,7 +25,7 @@ class Main extends Component {
       return (
         <Staffsdetal
           staffs={
-            this.state.staffs.filter(
+            this.props.staffs.filter(
               (staff) => staff.id === parseInt(match.params.staffID, 10)
             )[0]
           }
@@ -39,18 +41,18 @@ class Main extends Component {
             <Route
               path="/phongban"
               component={() => (
-                <Phongban departments={this.state.departments} />
+                <Phongban departments={this.props.departments} />
               )}
             />
             <Route
               exact
               path="/nhanvien"
-              component={() => <Menu staffs={this.state.staffs} />}
+              component={() => <Menu staffs={this.props.staffs} />}
             />
             <Route path="/nhanvien/:staffID" component={StaffwithId} />
             <Route
               path="/bangluong"
-              component={() => <Bangluong staffs={this.state.staffs} />}
+              component={() => <Bangluong staffs={this.props.staffs} />}
             />
 
             <Redirect to="nhanvien" />
@@ -63,4 +65,4 @@ class Main extends Component {
   }
 }
 
-export default Main;
+export default withRouter(connect(mapStateToProps)(Main));

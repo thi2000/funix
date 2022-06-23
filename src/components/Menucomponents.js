@@ -18,6 +18,7 @@ import {
 } from "reactstrap";
 import { Link } from "react-router-dom";
 import { Control, LocalForm, Errors } from "react-redux-form";
+import { objectOf } from "prop-types";
 const required = (val) => val && val.length;
 
 const maxLength = (len) => (val) => !val || val.length <= len;
@@ -60,6 +61,7 @@ class Menu extends Component {
     });
   }
   onSelect(search) {
+    console.log(typeof this.props.staffs[0].department);
     this.setState({ input: search });
   }
   handleSubmit(event) {
@@ -73,11 +75,13 @@ class Menu extends Component {
       salaryScale: value.salaryScale,
       startDate: value.startDate,
       department:
-        value.department == undefined ? "DEPARTMENT[1]" : value.department,
+        value.department == undefined ? "DEPARTMENTS[0]" : value.department,
+
       annualLeave: value.annualLeave,
       overTime: value.overTime,
       image: "/assets/images/alberto.png",
     };
+    console.log(data);
     this.props.staffs.push(data);
   }
 
