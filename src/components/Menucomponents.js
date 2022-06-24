@@ -88,6 +88,7 @@ class Menu extends Component {
     event.preventDefault();
   }
   handleSubmitRedux(event) {
+    this.toggleModal();
     const data = {
       id: this.state.id,
       name: this.state.name,
@@ -102,7 +103,9 @@ class Menu extends Component {
       overTime: this.state.overTime,
       image: "/assets/images/alberto.png",
     };
-    this.props.staffs.push(data);
+    if (data.id != "" && data.name != "" && data.startDate != "") {
+      this.props.staffs.push(data);
+    }
 
     event.preventDefault();
   }
