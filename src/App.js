@@ -9,6 +9,7 @@ class App extends Component {
   render() {
     return (
       <Provider store={store}>
+        {/* cung cap store cho cac components con  */}
         <BrowserRouter>
           <div>
             <Main />

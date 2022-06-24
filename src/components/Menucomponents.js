@@ -68,6 +68,7 @@ class Menu extends Component {
     event.preventDefault();
   }
   handleSubmitRedux(value) {
+    this.toggleModal();
     const data = {
       id: this.props.staffs.length,
       name: value.name,
