@@ -23,3 +23,4 @@ export const ConfigureStore = () => {
   );
   return store;
 };
+//goi reducer lai thnah 1 ham tong the

@@ -1,4 +1,4 @@
-import { DISHES } from "../shared/dishes";
+
 import * as ActionType from "./ActionType";
 export const Dishes = (
   state = { isLoading: true, errMess: null, dishes: [] },
