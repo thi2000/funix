@@ -13,6 +13,7 @@ export const addComment = (dishId, rating, author, comment) => ({
 });
 export const fetchDishes = () => (dispatch) => {
   dispatch(dishesLoading(true));
+
   return fetch(baseUrl + "dishes")
     .then(
       (response) => {
@@ -20,7 +21,7 @@ export const fetchDishes = () => (dispatch) => {
           return response;
         } else {
           var error = new Error(
-            "Error" + response.status + ":" + response.statusText
+            "Error " + response.status + ": " + response.statusText
           );
           error.response = response;
           throw error;
@@ -49,7 +50,6 @@ export const addDishes = (dishes) => ({
   payload: dishes,
 });
 export const fetchComments = () => (dispatch) => {
-  dispatch(dishesLoading(true));
   return fetch(baseUrl + "comments")
     .then(
       (response) => {
