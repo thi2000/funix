@@ -49,7 +49,7 @@ const Staffsdetal = (props) => {
         <div className="row">
           <Breadcrumb>
             <BreadcrumbItem>
-              <Link to="/menu">Menu</Link>
+              <Link to="/nhanvien">Menu</Link>
             </BreadcrumbItem>
             <BreadcrumbItem active>{props.staffs.name}</BreadcrumbItem>
           </Breadcrumb>
