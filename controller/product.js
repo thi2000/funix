@@ -178,7 +178,7 @@ exports.postEmail = (req, res, next) => {
     service: "gmail",
     auth: {
       user: "somot1pro@gmail.com", //Tài khoản gmail vừa tạo
-      pass: "chwmhnoocsdploen", //Mật khẩu tài khoản gmail vừa tạo
+      pass: "", //Mật khẩu tài khoản gmail vừa tạo
     },
   });
   const styleTABLE = "border:5px solid #ddd;text-align:left;padding:8px;";
